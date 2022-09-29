@@ -1,9 +1,22 @@
 package main
 
 import (
-	"fmt"
+    "log"
+
+    "github.com/joho/godotenv"
+    _ "github.com/lib/pq"
 )
 
+func init() {
+    err := godotenv.Load()
+    if err != nil {
+        log.Print("No .env file found")
+    }
+}
+
 func main() {
-	fmt.Println("IT'S ALIVE!")
+    log.Print("IT'S ALIVE!")
+
+    config := config.NewConfig()
+
 }
